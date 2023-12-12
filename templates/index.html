@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cell Phone Price Range</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        /* Add custom styles here */
+        .scrollable-form {
+            max-height: 400px; /* Adjust the height as needed */
+            overflow-y: scroll; /* Enable vertical scrolling */
+            scrollbar-width: none; /* Hide scrollbar in Firefox */
+            -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+        }
+
+        .scrollable-form::-webkit-scrollbar {
+            width: 0; /* Hide scrollbar in Chrome, Safari, and Opera */
+        }
+
+    select option {
+    background-color: rgba(255,255,255,0.5); /* Change this to the desired option background color */
+    color: black; /* You can also set the text color for options */
+  }
+    </style>
+</head>
+<body class="img js-fullheight" style="background-image: url(static/images/bg.jpg);">
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section">CELLPHONE PRICE RANGE</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="login-wrap p-0">
+                    <h3 class="mb-4 text-center">ENTER YOUR REQUIREMENTS TO KNOW RANGE</h3>
+				</div>
+			</div>
+                    <form action="{{ url_for('predict')}}" method="post" class="signin-form scrollable-form"> <!-- Add the 'scrollable-form' class here -->
+                        
+                        
+                        
+                        <div class="form-group">
+                            <!-- <input type="text" class="form-control" placeholder="Mobile Depth" required pattern="^(0(\.\d+)?|1(\.0+)?)$" title="Please enter a value between 0.1 and 1"> -->
+                            <input type="number" class="form-control" name="battery_power" placeholder="Battery Power" required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <select class="form-control" required>
+                                <option value="" disabled selected>Select Bluetooth</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="number" class="form-control" name = "clock_speed" placeholder="Clock Speed" required>
+                        </div>
+		
+						<div class="form-group">
+                            <select class="form-control" required>
+                                <option value="" disabled selected>Select Dual Sim</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+						<div class="form-group">
+                            <select class="form-control" required>
+								<option value="" disabled selected>Select Front Camera</option>
+								{% for number in range(1, 21) %}
+									<option value="{{ number }}">{{ number }}</option>
+								{% endfor %}
+							</select>
+                        </div>
+
+						<div class="form-group">
+                            <select class="form-control" required>
+								<option value="" disabled selected>Select Primary Camera</option>
+								{% for number in range(1, 21) %}
+									<option value="{{ number }}">{{ number }}</option>
+								{% endfor %}
+							</select>
+                        </div>
+
+						<div class="form-group">
+                            <input type="number" class="form-control" name = "int_memory" placeholder="Internal Memory" required>
+                        </div>
+
+						<div class="form-group">
+                            <input type="number" class="form-control" name = "ram"  placeholder="Ram" required>
+                        </div>
+
+						<div class="form-group">
+                            <select class="form-control" required>
+								<option value="" disabled selected>Select Number of Cores</option>
+								{% for number in range(1, 21) %}
+									<option value="{{ number }}">{{ number }}</option>
+								{% endfor %}
+                                <span>enter data</span>
+							</select>
+                        </div>
+
+						<div class="form-group">
+                            <select class="form-control" required>
+                                <option value="" disabled selected>Select Touch Screen</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+						<div class="form-group">
+                            <select class="form-control" required>
+                                <option value="" disabled selected>Select Wifi</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+						<div class="form-group">
+                            <select class="form-control" required>
+								<option value="" disabled selected>Select Screen Height</option>
+								{% for number in range(5, 21) %}
+									<option value="{{ number }}">{{ number }}</option>
+								{% endfor %}
+							</select>
+                        </div>
+
+						<div class="form-group">
+                            <select class="form-control" required>
+								<option value="" disabled selected>Select Screen Width</option>
+								{% for number in range(1, 11) %}
+									<option value="{{ number }}">{{ number }}</option>
+								{% endfor %}
+							</select>
+                        </div>
+
+						<div class="form-group">
+                            <select class="form-control" required>
+								<option value="" disabled selected>Select Mobile Depth</option>
+								{% for number in range(1, 11) %}
+									<option value="{{ number }}">{{ number/10 }}</option>
+								{% endfor %}
+							</select>
+                        </div>
+
+						<div class="form-group">
+                            <input type="number" class="form-control" name = "mobile_wt" placeholder="Mobile Weight" required>
+                        </div>
+
+						<div class="form-group">
+                            <input type="number" class="form-control" name = "px_height" placeholder="Pixel Height" required>
+                        </div>
+
+						<div class="form-group">
+                            <input type="number" class="form-control" name = "px_width" placeholder="Pixel Width" required>
+                        </div>
+
+						
+						<div class="form-group">
+                            <select class="form-control" required>
+                                <option value="" disabled selected>Select 4G</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+						<div class="form-group">
+                            <select class="form-control" required>
+                                <option value="" disabled selected>Select 3G</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+						<div class="form-group">
+                            <select class="form-control" required>
+								<option value="" disabled selected>Select Talktime</option>
+								{% for number in range(1, 21) %}
+									<option value="{{ number }}">{{ number }}</option>
+								{% endfor %}
+							</select>
+                        </div>
+
+						
+                        <div class="form-group">
+                            <button type="submit" class="form-control btn btn-primary submit px-3">Predict</button>
+                        </div>
+                       
+
+
+<div class="row formrow">
+    <div class="col-md-12 col-sm-12">
+        <h6 style="background-color: rgba(255, 255, 255, 0.1);color: white;padding: 20px;border-radius: 20PX;">Your Phone comes under  <span style="font-size: 20px;margin-left: 5px;color: rgb(255, 170, 170);text-transform: capitalize;">{{result}} price range</span><h6> 
+    </div>
+
+</div>
+
+</section>
+
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/popper.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/main.js"></script>
+
+</body>
+</html>
